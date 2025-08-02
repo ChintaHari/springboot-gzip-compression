@@ -1,5 +1,6 @@
 package com.example.springboot_gzip_compression.controller;
 
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
@@ -24,11 +25,11 @@ public class CompressionController {
                         .mapToObj(i -> Employee.builder()
                                                 .employeeId(i)
                                                 .employeeName("Employee " + i)
-                                                .employeeContactNumber(String.valueOf(new Random().nextLong(1000000000L)))
+                                                .employeeContactNumber(String.valueOf(new SecureRandom().nextLong(1000000000L)))
                                                 .employeeAddress("Address " + i)
-                                                .employeeGender(genders.get(new Random().nextInt(genders.size())))
-                                                .employeeDepartment(departments.get(new Random().nextInt(departments.size())))
-                                                .employeeSkills(skills.get(new Random().nextInt(skills.size())))
+                                                .employeeGender(genders.get(new SecureRandom().nextInt(genders.size())))
+                                                .employeeDepartment(departments.get(new SecureRandom().nextInt(departments.size())))
+                                                .employeeSkills(skills.get(new SecureRandom().nextInt(skills.size())))
                                                 .build())
                         .collect(Collectors.toList());
     }
